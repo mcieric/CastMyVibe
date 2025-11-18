@@ -35,7 +35,7 @@ A daily crypto vibe frame for Farcaster with a touch of humor, optimism, and rea
 2. Create a new project on Vercel
 3. Connect your forked repository
 4. Set the following environment variables in Vercel:
-   - `HOST`: Your deployed URL (e.g., https://castmyvibe.vercel.app)
+   - `HOST`: Your deployed URL (e.g., https://cast-my-vibe.vercel.app)
 5. Deploy!
 
 ## Development
