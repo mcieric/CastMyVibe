@@ -27,7 +27,7 @@ export default function Home() {
             <p>Get your personalized daily crypto vibe with humor, optimism, or reality.</p>
             <ul>
               <li>🎲 Daily personalized vibes</li>
-              <li>🔁 2 reroll attempts per day</li>
+              <li>🔁 5 reroll attempts per day</li>
               <li>📢 Cast your favorite vibes</li>
               <li>❤️ Support via donations</li>
             </ul>
