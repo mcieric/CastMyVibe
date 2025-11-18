@@ -5,7 +5,7 @@ A daily crypto vibe frame for Farcaster with a touch of humor, optimism, and rea
 ## Features
 
 - 🎲 Daily personalized crypto vibes
-- 🔁 2 reroll attempts per day
+- 🔁 5 reroll attempts per day
 - 📢 Cast your favorite vibes with pre-filled text
 - 🏆 Global leaderboard of most casted vibes
 - ❤️ Donation option
