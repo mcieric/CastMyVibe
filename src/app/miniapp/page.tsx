@@ -82,15 +82,17 @@ export default function MiniApp() {
   const handleCast = async () => {
     if (!currentVibe) return;
     
+    // Generate the frame URL for this vibe
+    const frameUrl = `${process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app'}/api/cast/${currentVibe.id}`;
+    
     const castText = `${currentVibe.text}
 
 #CastMyVibe #crypto #farcaster
 
-If this vibe made you smile, donations make me smile too 😌
-donate: 0x4eBa8c1f1957bD8cE5ec90f665f95b8e671B9Be6`;
+${frameUrl}`;
     
     try {
-      await sdk.actions.openUrl(`https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}`);
+      await sdk.actions.openUrl(`https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(frameUrl)}`);
     } catch (error) {
       console.error('Error opening cast composer:', error);
     }
