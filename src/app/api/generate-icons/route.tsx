@@ -18,15 +18,11 @@ export async function GET() {
           style={{
             fontSize: 180,
             fontWeight: 900,
-            background: 'linear-gradient(135deg, #ff0080 0%, #7928ca 50%, #00c8ff 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
+            color: 'white',
             letterSpacing: '-8px',
             display: 'flex',
             fontFamily: 'system-ui, -apple-system, sans-serif',
-            WebkitTextStroke: '3px white',
-            paintOrder: 'stroke fill',
+            textShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(138, 43, 226, 0.6)',
           }}
         >
           CastMyVibe
