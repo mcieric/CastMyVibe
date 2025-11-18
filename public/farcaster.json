@@ -1,15 +1,28 @@
 {
   "accountAssociation": {
-    "header": "eyJmaWQiOjEsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMCJ9",
-    "payload": "eyJkb21haW4iOiJjYXN0bXl2aWJlLnZlcmNlbC5hcHAifQ",
-    "signature": "MHg..."
+    "header": "REPLACE_WITH_YOUR_HEADER",
+    "payload": "REPLACE_WITH_YOUR_PAYLOAD",
+    "signature": "REPLACE_WITH_YOUR_SIGNATURE"
   },
-  "frame": {
-    "version": "next",
+  "miniapp": {
+    "version": "1",
     "name": "CastMyVibe",
-    "iconUrl": "https://castmyvibe.vercel.app/icon.png",
-    "splashImageUrl": "https://castmyvibe.vercel.app/splash.png",
+    "iconUrl": "https://cast-my-vibe.vercel.app/icon.png",
+    "splashImageUrl": "https://cast-my-vibe.vercel.app/splash.png",
     "splashBackgroundColor": "#7209b7",
-    "homeUrl": "https://castmyvibe.vercel.app/miniapp"
+    "homeUrl": "https://cast-my-vibe.vercel.app/miniapp",
+    "subtitle": "Daily crypto vibes",
+    "description": "Get your personalized daily crypto vibe with humor, optimism, or reality. Roll up to 5 times, cast your favorite vibes, and share the fun!",
+    "primaryCategory": "entertainment",
+    "tags": [
+      "crypto",
+      "humor",
+      "vibes",
+      "daily",
+      "fun"
+    ],
+    "tagline": "Your daily dose of crypto vibes",
+    "ogTitle": "CastMyVibe - Daily Crypto Vibes",
+    "ogDescription": "Get your personalized daily crypto vibe with humor, optimism, or reality!"
   }
 }
