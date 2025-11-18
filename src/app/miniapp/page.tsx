@@ -138,7 +138,7 @@ donate: 0x4eBa8c1f1957bD8cE5ec90f665f95b8e671B9Be6`;
             If this vibe made you smile, donations make me smile too 😌
           </p>
           <div className={styles.addressContainer}>
-            <p className={styles.addressLabel}>Ethereum Address:</p>
+            <p className={styles.addressLabel}>Base Address:</p>
             <code className={styles.address}>0x4eBa8c1f1957bD8cE5ec90f665f95b8e671B9Be6</code>
           </div>
           <button 
