@@ -51,7 +51,7 @@ export default function Home() {
               <li>Next.js 16 with App Router</li>
               <li>Farcaster Mini App SDK</li>
               <li>TypeScript</li>
-              <li>190+ curated vibes</li>
+              <li>300+ curated vibes</li>
             </ul>
           </div>
         </div>
