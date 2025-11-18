@@ -154,6 +154,14 @@ donate: 0x4eBa8c1f1957bD8cE5ec90f665f95b8e671B9Be6`;
 
   return (
     <div className={styles.container}>
+      <button 
+        className={styles.infoButton}
+        onClick={() => window.open('/', '_blank')}
+        aria-label="Information"
+      >
+        ?
+      </button>
+      
       <div 
         className={styles.vibeCard}
         style={{ background: getCategoryColor(currentVibe.category) }}
