@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CastMyVibe
 
-## Getting Started
+A daily crypto vibe frame for Farcaster with a touch of humor, optimism, and reality.
 
-First, run the development server:
+## Features
+
+- 🎲 Daily personalized crypto vibes
+- 🔁 2 reroll attempts per day
+- 📢 Cast your favorite vibes with pre-filled text
+- 🏆 Global leaderboard of most casted vibes
+- ❤️ Donation option
+- 🌈 Beautiful violet/blue gradient design
+
+## How to Use
+
+1. Deploy the app to Vercel (see deployment instructions below)
+2. Add the frame URL to your Farcaster frame:
+   ```
+   https://your-deployed-url/api/frame
+   ```
+3. Users can interact with the frame to get their daily vibe, reroll, cast vibes, view leaderboard, or donate
+
+## Categories
+
+- **Humor**: Light-hearted crypto jokes
+- **Optimistic**: Bullish perspectives
+- **Depressive**: Bearish realities
+- **General**: Daily mood reflections
+- **Motivational**: Inspiring crypto wisdom
+- **Punchlines**: Memorable one-liners
+
+## Deployment
+
+1. Fork this repository
+2. Create a new project on Vercel
+3. Connect your forked repository
+4. Set the following environment variables in Vercel:
+   - `HOST`: Your deployed URL (e.g., https://castmyvibe.vercel.app)
+5. Deploy!
+
+## Development
+
+To run the app locally:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js 14 with App Router
+- TypeScript
+- Vercel OG for image generation
+- Farcaster Frames API
 
-## Learn More
+## Donation
 
-To learn more about Next.js, take a look at the following resources:
+If you like this project, consider donating:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Ethereum Address**: 0x4eBa8c1f1957bD8cE5ec90f665f95b8e671B9Be6
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT

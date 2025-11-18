@@ -1,66 +1,70 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import styles from './page.module.css';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div className={styles.container}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <h1 className={styles.title}>
+          CastMyVibe
+        </h1>
+
+        <p className={styles.description}>
+          A daily crypto vibe mini-app for Farcaster
+        </p>
+
+        <div className={styles.grid}>
+          <div className={styles.card}>
+            <h2>✨ Try the Mini App</h2>
+            <p>Experience CastMyVibe as an interactive Farcaster mini-app!</p>
+            <Link href="/miniapp" className={styles.link}>
+              Launch Mini App →
+            </Link>
+          </div>
+
+          <div className={styles.card}>
+            <h2>How it works</h2>
+            <p>Get your personalized daily crypto vibe with humor, optimism, or reality.</p>
+            <ul>
+              <li>🎲 Daily personalized vibes</li>
+              <li>🔁 2 reroll attempts per day</li>
+              <li>📢 Cast your favorite vibes</li>
+              <li>❤️ Support via donations</li>
+            </ul>
+          </div>
+
+          <div className={styles.card}>
+            <h2>Categories</h2>
+            <ul>
+              <li>😂 Humor - Light-hearted crypto jokes</li>
+              <li>🚀 Optimistic - Bullish perspectives</li>
+              <li>😢 Depressive - Bearish realities</li>
+              <li>💭 General - Daily mood reflections</li>
+              <li>💪 Motivational - Inspiring wisdom</li>
+              <li>🎯 Punchlines - Memorable one-liners</li>
+            </ul>
+          </div>
+
+          <div className={styles.card}>
+            <h2>🎨 Tech Stack</h2>
+            <ul>
+              <li>Next.js 16 with App Router</li>
+              <li>Farcaster Mini App SDK</li>
+              <li>TypeScript</li>
+              <li>190+ curated vibes</li>
+            </ul>
+          </div>
         </div>
       </main>
+
+      <footer className={styles.footer}>
+        <p>
+          Made with ❤️ for the Farcaster community
+        </p>
+        <p>
+          Donate: 0x4eBa8c1f1957bD8cE5ec90f665f95b8e671B9Be6
+        </p>
+      </footer>
     </div>
   );
 }

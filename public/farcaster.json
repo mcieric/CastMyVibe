@@ -1,0 +1,15 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMCJ9",
+    "payload": "eyJkb21haW4iOiJjYXN0bXl2aWJlLnZlcmNlbC5hcHAifQ",
+    "signature": "MHg..."
+  },
+  "frame": {
+    "version": "next",
+    "name": "CastMyVibe",
+    "iconUrl": "https://castmyvibe.vercel.app/icon.png",
+    "splashImageUrl": "https://castmyvibe.vercel.app/splash.png",
+    "splashBackgroundColor": "#7209b7",
+    "homeUrl": "https://castmyvibe.vercel.app/miniapp"
+  }
+}
