@@ -1,13 +1,26 @@
 import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
+import { getVibeById } from '@/lib/utils';
 
 export const runtime = 'edge';
 
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const text = searchParams.get('text') || 'Welcome to CastMyVibe!';
-    const category = searchParams.get('category') || 'general';
+    
+    // Support both vibeId and text/category parameters
+    const vibeId = searchParams.get('vibeId');
+    let text = searchParams.get('text') || 'Welcome to CastMyVibe!';
+    let category = searchParams.get('category') || 'general';
+    
+    // If vibeId is provided, fetch the vibe
+    if (vibeId) {
+      const vibe = getVibeById(parseInt(vibeId));
+      if (vibe) {
+        text = vibe.text;
+        category = vibe.category;
+      }
+    }
     
     // Define colors for each category
     const categoryColors: Record<string, string> = {

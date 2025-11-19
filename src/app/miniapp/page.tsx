@@ -102,9 +102,9 @@ export default function MiniApp() {
       // Continue even if tracking fails
     }
     
-    // Generate the image URL for this vibe
+    // Generate the image URL for this vibe using vibe ID instead of full text
     const baseUrl = process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app';
-    const imageUrl = `${baseUrl}/api/image?text=${encodeURIComponent(currentVibe.text)}&category=${currentVibe.category}`;
+    const imageUrl = `${baseUrl}/api/image?vibeId=${currentVibe.id}`;
     const miniappUrl = `${baseUrl}/miniapp`;
     
     const castText = `${currentVibe.text}
