@@ -3,10 +3,11 @@ import { getVibeById } from '@/lib/utils';
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { vibeId: string } }
+  { params }: { params: Promise<{ vibeId: string }> }
 ) {
   try {
-    const vibeId = parseInt(params.vibeId);
+    const { vibeId: vibeIdStr } = await params;
+    const vibeId = parseInt(vibeIdStr);
     const vibe = getVibeById(vibeId);
     
     if (!vibe) {
