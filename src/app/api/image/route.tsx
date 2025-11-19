@@ -7,18 +7,18 @@ export async function GET(req: NextRequest) {
     const text = searchParams.get('text') || 'Welcome to CastMyVibe!';
     const category = searchParams.get('category') || 'general';
     
-    // Define colors for each category with violet/blue gradient as base
+    // Define colors for each category
     const categoryColors: Record<string, string> = {
-      humor: 'linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%)',
-      optimistic: 'linear-gradient(135deg, #74c69d 0%, #40916c 100%)',
-      depressive: 'linear-gradient(135deg, #5a189a 0%, #240046 100%)',
-      general: 'linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%)',
-      motivational: 'linear-gradient(135deg, #f72585 0%, #b5179e 100%)',
-      punchline: 'linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%)'
+      humor: '#7b2cbf',
+      optimistic: '#74c69d',
+      depressive: '#5a189a',
+      general: '#4cc9f0',
+      motivational: '#f72585',
+      punchline: '#4361ee',
+      meme: '#7209b7'
     };
     
-    // Default to violet/blue gradient
-    const bgColor = categoryColors[category] || 'linear-gradient(135deg, #7209b7 0%, #3a0ca3 100%)';
+    const bgColor = categoryColors[category] || '#7209b7';
     
     return new ImageResponse(
       (
@@ -42,6 +42,7 @@ export async function GET(req: NextRequest) {
               display: 'flex',
               fontSize: 48,
               fontWeight: 700,
+              fontStyle: 'italic',
               color: 'white',
               lineHeight: 1.4,
               textShadow: '0 2px 10px rgba(0,0,0,0.3)',
