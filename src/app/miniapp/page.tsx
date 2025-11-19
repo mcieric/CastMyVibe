@@ -102,17 +102,18 @@ export default function MiniApp() {
       // Continue even if tracking fails
     }
     
-    // Generate the frame URL for this vibe
-    const frameUrl = `${process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app'}/api/cast/${currentVibe.id}`;
+    // Generate the image URL for this vibe
+    const imageUrl = `${process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app'}/splash.png`;
+    const miniappUrl = `${process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app'}/miniapp`;
     
     const castText = `${currentVibe.text}
 
 #CastMyVibe #crypto #farcaster
 
-${frameUrl}`;
+Try it: ${miniappUrl}`;
     
     try {
-      await sdk.actions.openUrl(`https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(frameUrl)}`);
+      await sdk.actions.openUrl(`https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(imageUrl)}`);
     } catch (error) {
       console.error('Error opening cast composer:', error);
     }
