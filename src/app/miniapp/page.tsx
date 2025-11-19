@@ -122,13 +122,16 @@ export default function MiniApp() {
     console.log('Warpcast URL:', warpcastUrl);
     
     try {
+      // Check if we're in the actual Farcaster/Warpcast app
+      const isInFarcasterApp = context?.client?.clientFid !== undefined;
+      
       // Try using SDK first (if in Mini App context)
-      if (sdk && typeof sdk.actions?.openUrl === 'function') {
-        console.log('Using SDK to open URL');
+      if (isInFarcasterApp && sdk && typeof sdk.actions?.openUrl === 'function') {
+        console.log('Using SDK to open URL (in Farcaster app)');
         await sdk.actions.openUrl(warpcastUrl);
       } else {
-        // Fallback: Navigate directly if not in Mini App context
-        console.log('Using window.location.href');
+        // Fallback: Navigate directly if in web browser
+        console.log('Using window.location.href (in web browser)');
         window.location.href = warpcastUrl;
       }
     } catch (error) {
