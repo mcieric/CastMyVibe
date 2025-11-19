@@ -113,10 +113,20 @@ export default function MiniApp() {
 
 🎲 Get yours → ${miniappUrl}`;
     
+    const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(imageUrl)}`;
+    
     try {
-      await sdk.actions.openUrl(`https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(imageUrl)}`);
+      // Try using SDK first (if in Mini App context)
+      if (sdk && typeof sdk.actions?.openUrl === 'function') {
+        await sdk.actions.openUrl(warpcastUrl);
+      } else {
+        // Fallback: Open in new tab if not in Mini App context
+        window.open(warpcastUrl, '_blank');
+      }
     } catch (error) {
       console.error('Error opening cast composer:', error);
+      // Fallback: Open in new tab
+      window.open(warpcastUrl, '_blank');
     }
   };
 
