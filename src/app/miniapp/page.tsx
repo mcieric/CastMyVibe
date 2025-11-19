@@ -111,7 +111,9 @@ export default function MiniApp() {
 
 #CastMyVibe #crypto #farcaster
 
-🎲 Get yours → ${miniappUrl}`;
+🎲 Get yours → https://farcaster.xyz/miniapps/GjHPuTrL8tkG/castmyvibe
+or
+→ ${miniappUrl}`;
     
     const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(imageUrl)}`;
     
