@@ -201,6 +201,7 @@
   color: #ffffff;
   font-size: 22px;
   font-weight: 700;
+  font-style: italic;
   text-align: center;
   line-height: 1.6;
   margin: 0;
@@ -209,6 +210,7 @@
                0 0 40px rgba(255, 0, 128, 0.3);
   letter-spacing: -0.3px;
   font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 20px;
 }
 
 .rollInfo {
