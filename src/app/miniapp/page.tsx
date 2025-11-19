@@ -82,6 +82,26 @@ export default function MiniApp() {
   const handleCast = async () => {
     if (!currentVibe) return;
     
+    // Log the cast to analytics
+    try {
+      const fid = context?.user?.fid?.toString() || 'unknown';
+      const username = context?.user?.displayName || context?.user?.username || null;
+      
+      await fetch('/api/track-cast', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fid,
+          vibeId: currentVibe.id,
+          vibeText: currentVibe.text,
+          username,
+        }),
+      });
+    } catch (error) {
+      console.error('Error tracking cast:', error);
+      // Continue even if tracking fails
+    }
+    
     // Generate the frame URL for this vibe
     const frameUrl = `${process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app'}/api/cast/${currentVibe.id}`;
     
