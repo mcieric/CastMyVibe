@@ -107,11 +107,12 @@ export default function MiniApp() {
     const imageUrl = `${baseUrl}/api/image?vibeId=${currentVibe.id}`;
     const miniappUrl = `${baseUrl}/miniapp`;
     
-    const castText = `${currentVibe.text}
+    const castText = `✨ Today's Vibe:
+${currentVibe.text}
 
 #CastMyVibe #crypto #farcaster
 
-Try it: ${miniappUrl}`;
+🎲 Get yours → ${miniappUrl}`;
     
     try {
       await sdk.actions.openUrl(`https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(imageUrl)}`);
