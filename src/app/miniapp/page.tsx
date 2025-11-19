@@ -82,10 +82,6 @@ export default function MiniApp() {
   const handleCast = async () => {
     if (!currentVibe) return;
     
-    console.log('Cast button clicked');
-    console.log('SDK available:', !!sdk);
-    console.log('SDK actions:', sdk?.actions);
-    
     // Log the cast to analytics
     try {
       const fid = context?.user?.fid?.toString() || 'unknown';
@@ -119,25 +115,20 @@ export default function MiniApp() {
     
     const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(imageUrl)}`;
     
-    console.log('Warpcast URL:', warpcastUrl);
-    
     try {
       // Check if we're in the actual Farcaster/Warpcast app
       const isInFarcasterApp = context?.client?.clientFid !== undefined;
       
       // Try using SDK first (if in Mini App context)
       if (isInFarcasterApp && sdk && typeof sdk.actions?.openUrl === 'function') {
-        console.log('Using SDK to open URL (in Farcaster app)');
         await sdk.actions.openUrl(warpcastUrl);
       } else {
         // Fallback: Navigate directly if in web browser
-        console.log('Using window.location.href (in web browser)');
         window.location.href = warpcastUrl;
       }
     } catch (error) {
       console.error('Error opening cast composer:', error);
       // Fallback: Navigate directly
-      alert('Redirecting to Warpcast...');
       window.location.href = warpcastUrl;
     }
   };
