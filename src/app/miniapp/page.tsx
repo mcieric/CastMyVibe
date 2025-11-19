@@ -103,8 +103,9 @@ export default function MiniApp() {
     }
     
     // Generate the image URL for this vibe
-    const imageUrl = `${process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app'}/splash.png`;
-    const miniappUrl = `${process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app'}/miniapp`;
+    const baseUrl = process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app';
+    const imageUrl = `${baseUrl}/api/image?text=${encodeURIComponent(currentVibe.text)}&category=${currentVibe.category}`;
+    const miniappUrl = `${baseUrl}/miniapp`;
     
     const castText = `${currentVibe.text}
 
