@@ -120,13 +120,13 @@ export default function MiniApp() {
       if (sdk && typeof sdk.actions?.openUrl === 'function') {
         await sdk.actions.openUrl(warpcastUrl);
       } else {
-        // Fallback: Open in new tab if not in Mini App context
-        window.open(warpcastUrl, '_blank');
+        // Fallback: Navigate directly if not in Mini App context
+        window.location.href = warpcastUrl;
       }
     } catch (error) {
       console.error('Error opening cast composer:', error);
-      // Fallback: Open in new tab
-      window.open(warpcastUrl, '_blank');
+      // Fallback: Navigate directly
+      window.location.href = warpcastUrl;
     }
   };
 
