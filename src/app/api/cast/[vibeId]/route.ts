@@ -14,16 +14,19 @@ export async function GET(
       return new Response('Vibe not found', { status: 404 });
     }
 
+    const baseUrl = process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app';
+    const imageUrl = `${baseUrl}/api/image?text=${encodeURIComponent(vibe.text)}&category=${vibe.category}`;
+
     const frameHtml = `
 <!DOCTYPE html>
 <html>
   <head>
     <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${process.env.HOST}/api/image?text=${encodeURIComponent(vibe.text)}&category=${vibe.category}" />
+    <meta property="fc:frame:image" content="${imageUrl}" />
     <meta property="fc:frame:button:1" content="Get Your Daily Vibe" />
     <meta property="fc:frame:button:1:action" content="link" />
-    <meta property="fc:frame:button:1:target" content="${process.env.HOST}/miniapp" />
-    <meta property="og:image" content="${process.env.HOST}/api/image?text=${encodeURIComponent(vibe.text)}&category=${vibe.category}" />
+    <meta property="fc:frame:button:1:target" content="${baseUrl}/miniapp" />
+    <meta property="og:image" content="${imageUrl}" />
     <meta property="og:title" content="CastMyVibe" />
     <meta property="og:description" content="${vibe.text}" />
     
