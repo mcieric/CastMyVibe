@@ -17,6 +17,24 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "CastMyVibe - Daily Crypto Vibes",
   description: "Get your daily dose of crypto vibes - humor, optimism, and reality!",
+  openGraph: {
+    title: "CastMyVibe - Daily Crypto Vibes",
+    description: "Your daily crypto vibe generator. 300+ vibes to match your mood.",
+    images: [
+      {
+        url: "https://cast-my-vibe.vercel.app/splash.png",
+        width: 512,
+        height: 512,
+        alt: "CastMyVibe",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CastMyVibe - Daily Crypto Vibes",
+    description: "Your daily crypto vibe generator. 300+ vibes to match your mood.",
+    images: ["https://cast-my-vibe.vercel.app/splash.png"],
+  },
 };
 
 export default function RootLayout({
