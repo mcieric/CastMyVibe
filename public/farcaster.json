@@ -4,6 +4,9 @@
     "payload": "eyJkb21haW4iOiJjYXN0LW15LXZpYmUudmVyY2VsLmFwcCJ9",
     "signature": "dbuPt8+1ZrZPlm+pesPDyW2N+iMt09M/JWR5/Juyg1R4DlStD0kLrNA6+zoi9z2vsoAOKgE8Q22Q9AjZCQ52nBs="
   },
+  "baseBuilder": {
+    "ownerAddress": "0x939E33ed6661B9C1e381c4666F67AB16aA09a1fE"
+  },
   "miniapp": {
     "version": "1",
     "name": "CastMyVibe",
