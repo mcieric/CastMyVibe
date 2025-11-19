@@ -107,10 +107,7 @@ export default function MiniApp() {
     const imageUrl = `${baseUrl}/api/image?vibeId=${currentVibe.id}`;
     const miniappUrl = `${baseUrl}/miniapp`;
     
-    const castText = `✨ Today's Vibe:
-${currentVibe.text}
-
-#CastMyVibe #crypto #farcaster
+    const castText = `#CastMyVibe #crypto #farcaster
 
 🎲 Get yours → ${miniappUrl}`;
     
