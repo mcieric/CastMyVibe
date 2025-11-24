@@ -3,9 +3,9 @@ import { getVibeById } from '@/lib/utils';
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { vibeId: string } }
+  { params }: { params: Promise<{ vibeId: string }> }
 ) {
-  const vibeId = params.vibeId;
+  const { vibeId } = await params;
   const vibe = getVibeById(parseInt(vibeId));
   
   if (!vibe) {
