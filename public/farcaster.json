@@ -14,7 +14,7 @@
     "splashImageUrl": "https://cast-my-vibe.vercel.app/splash.png",
     "splashBackgroundColor": "#7209b7",
     "homeUrl": "https://cast-my-vibe.vercel.app/miniapp",
-    "imageUrl": "https://cast-my-vibe.vercel.app/api/image?text=Get your daily crypto vibe!&category=general",
+    "imageUrl": "https://cast-my-vibe.vercel.app/api/preview-image",
     "subtitle": "Daily crypto vibes",
     "description": "Get your daily crypto vibe with humor, optimism, or reality. Roll up to 5 times and cast your favorites!",
     "primaryCategory": "entertainment",
@@ -28,7 +28,7 @@
     "tagline": "Daily dose of crypto vibes",
     "ogTitle": "CastMyVibe",
     "ogDescription": "Daily crypto vibes to share!",
-    "ogImageUrl": "https://cast-my-vibe.vercel.app/api/image?text=Get your daily crypto vibe!&category=general",
+    "ogImageUrl": "https://cast-my-vibe.vercel.app/api/preview-image",
     "castShareUrl": "https://cast-my-vibe.vercel.app/miniapp"
   }
 }

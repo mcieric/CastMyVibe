@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 const miniappMetadata = {
   version: 'next',
-  imageUrl: 'https://cast-my-vibe.vercel.app/api/image?text=Get your daily crypto vibe!&category=general',
+  imageUrl: 'https://cast-my-vibe.vercel.app/api/preview-image',
   button: {
     title: 'Open CastMyVibe',
     action: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CastMyVibe - Daily Crypto Vibes',
     description: 'Get your daily crypto vibe with humor, optimism, or reality. Roll up to 5 times and cast your favorites!',
-    images: ['https://cast-my-vibe.vercel.app/api/image?text=Get your daily crypto vibe!&category=general'],
+    images: ['https://cast-my-vibe.vercel.app/api/preview-image'],
   },
   other: {
     'fc:miniapp': JSON.stringify(miniappMetadata),
