@@ -102,9 +102,9 @@ export default function MiniApp() {
       // Continue even if tracking fails
     }
     
-    // Generate the image URL for this vibe using vibe ID instead of full text
+    // Generate the cast page URL that will redirect to miniapp when clicked
     const baseUrl = process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app';
-    const imageUrl = `${baseUrl}/api/image?vibeId=${currentVibe.id}`;
+    const castPageUrl = `${baseUrl}/api/cast/${currentVibe.id}`;
     const miniappUrl = `${baseUrl}/miniapp`;
     
     const castText = `🌍 Hello Farcaster! Here's my vibe of the day 🚀
@@ -115,7 +115,7 @@ export default function MiniApp() {
 or
 → ${miniappUrl}`;
     
-    const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(imageUrl)}`;
+    const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
     
     try {
       // Check if we're in the actual Farcaster/Warpcast app
