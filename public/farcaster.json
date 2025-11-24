@@ -29,6 +29,8 @@
     "ogTitle": "CastMyVibe",
     "ogDescription": "Daily crypto vibes to share!",
     "ogImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
-    "castShareUrl": "https://cast-my-vibe.vercel.app/miniapp"
+    "castShareUrl": "https://cast-my-vibe.vercel.app/miniapp",
+    "screenshotUrls": [],
+    "noindex": false
   }
 }
