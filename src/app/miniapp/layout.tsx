@@ -1,17 +1,5 @@
 import type { Metadata } from 'next';
 
-const miniappMetadata = {
-  version: 'next',
-  imageUrl: 'https://cast-my-vibe.vercel.app/api/preview-image',
-  button: {
-    title: 'Open CastMyVibe',
-    action: {
-      type: 'launch_frame',
-      url: 'https://cast-my-vibe.vercel.app/miniapp',
-    },
-  },
-};
-
 export const metadata: Metadata = {
   title: 'CastMyVibe - Daily Crypto Vibes',
   description: 'Get your daily crypto vibe with humor, optimism, or reality. Roll up to 5 times and cast your favorites!',
@@ -21,7 +9,7 @@ export const metadata: Metadata = {
     images: ['https://cast-my-vibe.vercel.app/api/preview-image'],
   },
   other: {
-    'fc:miniapp': JSON.stringify(miniappMetadata),
+    'fc:miniapp': '{"version":"next","imageUrl":"https://cast-my-vibe.vercel.app/api/preview-image","button":{"title":"Open CastMyVibe","action":{"type":"launch_frame","url":"https://cast-my-vibe.vercel.app/miniapp"}}}',
   },
 };
 
