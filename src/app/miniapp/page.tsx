@@ -105,7 +105,6 @@ export default function MiniApp() {
     // Generate the cast page URL that will redirect to miniapp when clicked
     const baseUrl = process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app';
     const castPageUrl = `${baseUrl}/api/cast/${currentVibe.id}`;
-    const miniappUrl = `${baseUrl}/miniapp`;
     
     const castText = `🌍 Hello Farcaster! Here's my vibe of the day 🚀
 
@@ -113,7 +112,7 @@ export default function MiniApp() {
 
 🎲 Get yours → https://farcaster.xyz/miniapps/GjHPuTrL8tkG/castmyvibe
 or
-→ ${miniappUrl}`;
+→ cast-my-vibe.vercel.app`;
     
     const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
     
