@@ -195,7 +195,7 @@ or
     <div className={styles.container}>
       <button 
         className={styles.infoButton}
-        onClick={() => window.open('/', '_blank')}
+        onClick={() => window.open('/about', '_blank')}
         aria-label="Information"
       >
         ?
