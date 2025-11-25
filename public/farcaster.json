@@ -13,7 +13,7 @@
     "iconUrl": "https://cast-my-vibe.vercel.app/icon.png",
     "splashImageUrl": "https://cast-my-vibe.vercel.app/splash.png",
     "splashBackgroundColor": "#7209b7",
-    "homeUrl": "https://cast-my-vibe.vercel.app/miniapp",
+    "homeUrl": "https://cast-my-vibe.vercel.app",
     "imageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "heroImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "subtitle": "Daily crypto vibes",
@@ -30,7 +30,7 @@
     "ogTitle": "CastMyVibe",
     "ogDescription": "Daily crypto vibes to share!",
     "ogImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
-    "castShareUrl": "https://cast-my-vibe.vercel.app/miniapp",
+    "castShareUrl": "https://cast-my-vibe.vercel.app",
     "screenshotUrls": [],
     "noindex": false
   }

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     images: ["https://cast-my-vibe.vercel.app/hero.png"],
   },
   other: {
-    'fc:miniapp': '{"version":"next","imageUrl":"https://cast-my-vibe.vercel.app/hero.png","button":{"title":"Open CastMyVibe","action":{"type":"launch_frame","url":"https://cast-my-vibe.vercel.app/miniapp"}}}',
+    'fc:miniapp': '{"version":"next","imageUrl":"https://cast-my-vibe.vercel.app/hero.png","button":{"title":"Open CastMyVibe","action":{"type":"launch_frame","url":"https://cast-my-vibe.vercel.app"}}}',
   },
 };
 
