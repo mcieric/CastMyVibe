@@ -16,24 +16,20 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "CastMyVibe - Daily Crypto Vibes",
-  description: "Get your daily dose of crypto vibes - humor, optimism, and reality!",
+  description: "Get your daily crypto vibe with humor optimism or reality. Roll up to 5 times and cast your favorites",
   openGraph: {
     title: "CastMyVibe - Daily Crypto Vibes",
-    description: "Your daily crypto vibe generator. 300+ vibes to match your mood.",
-    images: [
-      {
-        url: "https://cast-my-vibe.vercel.app/splash.png",
-        width: 512,
-        height: 512,
-        alt: "CastMyVibe",
-      },
-    ],
+    description: "Get your daily crypto vibe with humor optimism or reality. Roll up to 5 times and cast your favorites",
+    images: ["https://cast-my-vibe.vercel.app/hero.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "CastMyVibe - Daily Crypto Vibes",
-    description: "Your daily crypto vibe generator. 300+ vibes to match your mood.",
-    images: ["https://cast-my-vibe.vercel.app/splash.png"],
+    description: "Get your daily crypto vibe with humor optimism or reality. Roll up to 5 times and cast your favorites",
+    images: ["https://cast-my-vibe.vercel.app/hero.png"],
+  },
+  other: {
+    'fc:miniapp': '{"version":"next","imageUrl":"https://cast-my-vibe.vercel.app/hero.png","button":{"title":"Open CastMyVibe","action":{"type":"launch_frame","url":"https://cast-my-vibe.vercel.app/miniapp"}}}',
   },
 };
 
