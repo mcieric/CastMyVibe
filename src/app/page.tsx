@@ -107,31 +107,40 @@ export default function MiniApp() {
     const baseUrl = process.env.NEXT_PUBLIC_HOST || 'https://cast-my-vibe.vercel.app';
     const castPageUrl = `${baseUrl}/api/cast/${currentVibe.id}`;
     
-    const castText = `🌍 Hello Farcaster! Here's my vibe of the day 🚀
+    const castText = `🌍 Here's my vibe of the day! 🚀
 
-#CastMyVibe #crypto #farcaster
+"${currentVibe.text}"
 
-🎲 Get yours → https://farcaster.xyz/miniapps/GjHPuTrL8tkG/castmyvibe
-or
-→ cast-my-vibe.vercel.app`;
-    
-    const warpcastUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+#CastMyVibe #crypto
+
+🎲 Get yours at cast-my-vibe.vercel.app`;
     
     try {
-      // Check if we're in the actual Farcaster/Warpcast app
-      const isInFarcasterApp = context?.client?.clientFid !== undefined;
+      // Detect which app we're running in
+      const isInMiniApp = context?.client?.clientFid !== undefined;
       
-      // Try using SDK first (if in Mini App context)
-      if (isInFarcasterApp && sdk && typeof sdk.actions?.openUrl === 'function') {
-        await sdk.actions.openUrl(warpcastUrl);
+      if (isInMiniApp && sdk && typeof sdk.actions?.openUrl === 'function') {
+        // Use Farcaster protocol URL - works for both Base App and Warpcast
+        const farcasterUrl = `farcaster://composer?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+        
+        try {
+          // Try Farcaster protocol URL first (native)
+          await sdk.actions.openUrl(farcasterUrl);
+        } catch (protocolError) {
+          // Fallback to web compose URL if protocol fails
+          const webComposeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+          await sdk.actions.openUrl(webComposeUrl);
+        }
       } else {
         // Fallback: Navigate directly if in web browser
-        window.location.href = warpcastUrl;
+        const webComposeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+        window.location.href = webComposeUrl;
       }
     } catch (error) {
       console.error('Error opening cast composer:', error);
-      // Fallback: Navigate directly
-      window.location.href = warpcastUrl;
+      // Last resort fallback
+      const fallbackUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+      window.location.href = fallbackUrl;
     }
   };
 
