@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "CastMyVibe - Daily Crypto Vibes",
-  description: "Get your daily crypto vibe with humor, optimism or reality. Roll up to 5 times and cast your favorites.",
+  description: "Get your daily crypto vibe with humor and optimism. Roll up to 5 times and cast your favorites.",
   openGraph: {
     title: "CastMyVibe",
     description: "Get your daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community.",

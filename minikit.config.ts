@@ -18,7 +18,7 @@ export const minikitConfig = {
     version: "1",
     name: "CastMyVibe",
     subtitle: "Daily crypto vibes",
-    description: "Get your daily crypto vibe with humor, optimism or reality. Roll up to 5 times and cast your favorites.",
+    description: "Get your daily crypto vibe with humor and optimism. Roll up to 5 times and cast your favorites.",
     screenshotUrls: [
       `${ROOT_URL}/screenshot-1.png`,
       `${ROOT_URL}/screenshot-2.png`
