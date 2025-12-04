@@ -18,7 +18,7 @@ export const minikitConfig = {
     version: "1",
     name: "CastMyVibe",
     subtitle: "Daily crypto vibes",
-    description: "Get your daily crypto vibe with humor, optimism or reality. Roll up to 5 times and cast your favorites. Share your mood with the Farcaster community.",
+    description: "Get your daily crypto vibe with humor, optimism or reality. Roll up to 5 times and cast your favorites.",
     screenshotUrls: [
       `${ROOT_URL}/screenshot-1.png`,
       `${ROOT_URL}/screenshot-2.png`
@@ -34,7 +34,7 @@ export const minikitConfig = {
     imageUrl: `${ROOT_URL}/hero.png`,
     tagline: "Daily dose of crypto vibes",
     ogTitle: "CastMyVibe",
-    ogDescription: "Get your personalized daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community.",
+    ogDescription: "Get your daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community.",
     ogImageUrl: `${ROOT_URL}/hero.png`,
     castShareUrl: ROOT_URL,
     noindex: false
