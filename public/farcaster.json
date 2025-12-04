@@ -18,7 +18,7 @@
     "imageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "heroImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "subtitle": "Daily crypto vibes",
-    "description": "Get your daily crypto vibe with humor, optimism or reality. Roll up to 5 times and cast your favorites! Share your mood with the Farcaster community.",
+    "description": "Get your daily crypto vibe with humor, optimism or reality. Roll up to 5 times and cast your favorites. Share your mood with the Farcaster community.",
     "primaryCategory": "entertainment",
     "tags": [
       "crypto",
@@ -28,8 +28,8 @@
       "fun"
     ],
     "tagline": "Daily dose of crypto vibes",
-    "ogTitle": "CastMyVibe - Daily Crypto Vibes",
-    "ogDescription": "Get your personalized daily crypto vibe! Roll, share, and spread good vibes in the Farcaster community.",
+    "ogTitle": "CastMyVibe",
+    "ogDescription": "Get your personalized daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community.",
     "ogImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "castShareUrl": "https://cast-my-vibe.vercel.app",
     "screenshotUrls": [

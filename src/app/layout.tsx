@@ -16,16 +16,16 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "CastMyVibe - Daily Crypto Vibes",
-  description: "Get your personalized daily crypto vibe! Roll, share, and spread good vibes in the Farcaster community.",
+  description: "Get your daily crypto vibe with humor, optimism or reality. Roll up to 5 times and cast your favorites. Share your mood with the Farcaster community.",
   openGraph: {
-    title: "CastMyVibe - Daily Crypto Vibes",
-    description: "Get your personalized daily crypto vibe! Roll, share, and spread good vibes in the Farcaster community.",
+    title: "CastMyVibe",
+    description: "Get your personalized daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community.",
     images: ["https://cast-my-vibe.vercel.app/hero.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CastMyVibe - Daily Crypto Vibes",
-    description: "Get your personalized daily crypto vibe! Roll, share, and spread good vibes in the Farcaster community.",
+    title: "CastMyVibe",
+    description: "Get your personalized daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community.",
     images: ["https://cast-my-vibe.vercel.app/hero.png"],
   },
   other: {
