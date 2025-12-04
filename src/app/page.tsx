@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { sdk } from '@farcaster/miniapp-sdk';
+import { useComposeCast } from '@coinbase/onchainkit/minikit';
 import { getUserVibeForToday, getRandomVibe } from '@/lib/utils';
 import { Vibe } from '@/lib/vibes';
 import styles from './page.module.css';
@@ -15,6 +16,9 @@ export default function MiniApp() {
   const [isRolling, setIsRolling] = useState(false);
   const [showDonate, setShowDonate] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  
+  // Use OnchainKit's useComposeCast for native Base App composer
+  const { composeCast } = useComposeCast();
 
   useEffect(() => {
     const load = async () => {
@@ -115,23 +119,15 @@ export default function MiniApp() {
 
 🎲 Get yours at cast-my-vibe.vercel.app`;
     
+    // Use OnchainKit's composeCast for native Base App support
     try {
-      // Detect which app we're running in
-      const isInMiniApp = context?.client?.clientFid !== undefined;
-      
-      if (isInMiniApp && sdk && typeof sdk.actions?.openUrl === 'function') {
-        // For Base App and Warpcast, use the web compose URL
-        // The SDK will handle opening it in the native app
-        const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
-        await sdk.actions.openUrl(composeUrl);
-      } else {
-        // Fallback: Navigate directly if in web browser
-        const webComposeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
-        window.location.href = webComposeUrl;
-      }
+      composeCast({
+        text: castText,
+        embeds: [castPageUrl]
+      });
     } catch (error) {
       console.error('Error opening cast composer:', error);
-      // Last resort fallback
+      // Fallback for web or other clients
       const fallbackUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
       window.location.href = fallbackUrl;
     }
