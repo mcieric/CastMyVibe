@@ -29,7 +29,7 @@ export const minikitConfig = {
     homeUrl: ROOT_URL,
     webhookUrl: `${ROOT_URL}/api/webhook`,
     primaryCategory: "entertainment",
-    tags: ["crypto", "humor", "vibes", "daily", "fun", "social", "farcaster"],
+    tags: ["crypto", "humor", "vibes", "daily", "fun"],
     heroImageUrl: `${ROOT_URL}/hero.png`,
     imageUrl: `${ROOT_URL}/hero.png`,
     tagline: "Daily dose of crypto vibes",
