@@ -120,17 +120,10 @@ export default function MiniApp() {
       const isInMiniApp = context?.client?.clientFid !== undefined;
       
       if (isInMiniApp && sdk && typeof sdk.actions?.openUrl === 'function') {
-        // Use Farcaster protocol URL - works for both Base App and Warpcast
-        const farcasterUrl = `farcaster://composer?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
-        
-        try {
-          // Try Farcaster protocol URL first (native)
-          await sdk.actions.openUrl(farcasterUrl);
-        } catch (protocolError) {
-          // Fallback to web compose URL if protocol fails
-          const webComposeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
-          await sdk.actions.openUrl(webComposeUrl);
-        }
+        // For Base App and Warpcast, use the web compose URL
+        // The SDK will handle opening it in the native app
+        const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+        await sdk.actions.openUrl(composeUrl);
       } else {
         // Fallback: Navigate directly if in web browser
         const webComposeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
