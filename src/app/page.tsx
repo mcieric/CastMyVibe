@@ -14,6 +14,7 @@ export default function MiniApp() {
   const [maxRolls] = useState(5);
   const [isRolling, setIsRolling] = useState(false);
   const [showDonate, setShowDonate] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -206,12 +207,48 @@ or
       >
         <div className={styles.header}>
           <h1 className={styles.logo}>CastMyVibe</h1>
-          <div className={styles.userInfo}>
+          <div className={styles.userInfo} onClick={() => setShowProfile(!showProfile)}>
+            {context?.user?.pfpUrl && (
+              <img 
+                src={context.user.pfpUrl} 
+                alt="Profile" 
+                className={styles.avatar}
+              />
+            )}
             {context?.user?.displayName && (
               <span className={styles.username}>@{context.user.displayName}</span>
             )}
           </div>
         </div>
+        
+        {showProfile && context?.user && (
+          <div className={styles.profileCard}>
+            <div className={styles.profileHeader}>
+              {context.user.pfpUrl && (
+                <img 
+                  src={context.user.pfpUrl} 
+                  alt="Profile" 
+                  className={styles.profileAvatar}
+                />
+              )}
+              <div className={styles.profileInfo}>
+                <h3 className={styles.profileName}>
+                  {context.user.displayName || context.user.username}
+                </h3>
+                <p className={styles.profileFid}>FID: {context.user.fid}</p>
+              </div>
+            </div>
+            {context.user.bio && (
+              <p className={styles.profileBio}>{context.user.bio}</p>
+            )}
+            <button 
+              className={styles.closeProfile}
+              onClick={() => setShowProfile(false)}
+            >
+              ✕
+            </button>
+          </div>
+        )}
 
         <div className={`${styles.vibeContent} ${isRolling ? styles.rolling : ''}`}>
           <div className={styles.categoryBadge}>
