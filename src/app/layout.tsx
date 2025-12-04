@@ -16,20 +16,31 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "CastMyVibe - Daily Crypto Vibes",
-  description: "Get your daily crypto vibe with humor optimism or reality. Roll up to 5 times and cast your favorites",
+  description: "Get your personalized daily crypto vibe! Roll, share, and spread good vibes in the Farcaster community.",
   openGraph: {
     title: "CastMyVibe - Daily Crypto Vibes",
-    description: "Get your daily crypto vibe with humor optimism or reality. Roll up to 5 times and cast your favorites",
+    description: "Get your personalized daily crypto vibe! Roll, share, and spread good vibes in the Farcaster community.",
     images: ["https://cast-my-vibe.vercel.app/hero.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "CastMyVibe - Daily Crypto Vibes",
-    description: "Get your daily crypto vibe with humor optimism or reality. Roll up to 5 times and cast your favorites",
+    description: "Get your personalized daily crypto vibe! Roll, share, and spread good vibes in the Farcaster community.",
     images: ["https://cast-my-vibe.vercel.app/hero.png"],
   },
   other: {
-    'fc:miniapp': '{"version":"next","imageUrl":"https://cast-my-vibe.vercel.app/hero.png","button":{"title":"Open CastMyVibe","action":{"type":"launch_frame","url":"https://cast-my-vibe.vercel.app"}}}',
+    'fc:miniapp': JSON.stringify({
+      version: "next",
+      imageUrl: "https://cast-my-vibe.vercel.app/hero.png",
+      button: {
+        title: "🎲 Get Your Vibe",
+        action: {
+          type: "launch_miniapp",
+          name: "CastMyVibe",
+          url: "https://cast-my-vibe.vercel.app"
+        }
+      }
+    }),
   },
 };
 
