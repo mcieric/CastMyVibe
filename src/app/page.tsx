@@ -17,8 +17,8 @@ export default function MiniApp() {
   const [showDonate, setShowDonate] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   
-  // Use OnchainKit hooks for Base App compatibility
-  const { setFrameReady, isFrameReady } = useMiniKit();
+  // Use OnchainKit for Base App compatibility
+  const { setFrameReady } = useMiniKit();
 
   useEffect(() => {
     const load = async () => {
@@ -48,25 +48,19 @@ export default function MiniApp() {
         
         setIsSDKLoaded(true);
         
-        // Signal frame is ready (OnchainKit)
-        if (!isFrameReady) {
-          setFrameReady();
-        }
-        
-        // Also tell Farcaster SDK (for compatibility)
+        // Signal frame is ready - ONLY ONCE!
+        setFrameReady();
         await sdk.actions.ready();
       } catch (error) {
         console.error('Error loading SDK:', error);
         setIsSDKLoaded(true);
-        if (!isFrameReady) {
-          setFrameReady();
-        }
+        setFrameReady();
         await sdk.actions.ready();
       }
     };
     
     load();
-  }, [isFrameReady, setFrameReady]);
+  }, []); // Empty deps = run only once on mount!
 
   const handleReroll = () => {
     if (rollCount >= maxRolls || !currentVibe) return;
