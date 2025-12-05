@@ -28,12 +28,7 @@
     "heroImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "tagline": "Daily dose of crypto vibes",
     "ogTitle": "CastMyVibe",
-    "ogDescription": "Get your daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community.",
-    "requiredChains": ["eip155:8453"],
-    "requiredCapabilities": [
-      "wallet.getEthereumProvider",
-      "actions.composeCast"
-    ]
+    "ogDescription": "Get your daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community."
   },
   "baseBuilder": {
     "allowedAddresses": ["0x939E33ed6661B9C1e381c4666F67AB816aA09afE"]
