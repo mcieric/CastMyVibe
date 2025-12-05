@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { sdk } from '@farcaster/miniapp-sdk';
-import { useMiniKit, useComposeCast } from '@coinbase/onchainkit/minikit';
+import { useMiniKit } from '@coinbase/onchainkit/minikit';
 import { getUserVibeForToday, getRandomVibe } from '@/lib/utils';
 import { Vibe } from '@/lib/vibes';
 import styles from './page.module.css';
@@ -19,7 +19,6 @@ export default function MiniApp() {
   
   // Use OnchainKit hooks for Base App compatibility
   const { setFrameReady, isFrameReady } = useMiniKit();
-  const { composeCast } = useComposeCast();
 
   useEffect(() => {
     const load = async () => {
@@ -128,12 +127,23 @@ export default function MiniApp() {
 
 🎲 Get yours at cast-my-vibe.vercel.app`;
     
-    // Use OnchainKit's composeCast hook - official Base App method!
+    // Use Farcaster SDK's native composeCast - works with our manifest!
     try {
-      composeCast({
-        text: castText,
-        embeds: [castPageUrl]
-      });
+      if (sdk?.actions?.composeCast) {
+        const result = await sdk.actions.composeCast({
+          text: castText,
+          embeds: [castPageUrl]
+        });
+        
+        // Log successful cast
+        if (result?.cast) {
+          console.log('Cast posted:', result.cast.hash);
+        }
+      } else {
+        // Fallback for web browsers
+        const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+        window.location.href = composeUrl;
+      }
     } catch (error) {
       console.error('Error opening composer:', error);
       // Fallback for web browsers
