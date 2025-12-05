@@ -115,19 +115,22 @@ export default function MiniApp() {
 
 🎲 Get yours at cast-my-vibe.vercel.app`;
     
-    // Open Farcaster/Warpcast composer - SIMPLE AND IT WORKS!
-    const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
-    
-    // Try to use SDK to open in-app if available, otherwise fallback to URL
+    // Try native composer first (works in Base App & Warpcast), fallback to URL
     try {
-      if (sdk?.actions?.openUrl) {
-        await sdk.actions.openUrl(composeUrl);
+      if (sdk?.actions?.composeCast) {
+        // Native composer - opens directly in Base App or Warpcast!
+        await sdk.actions.composeCast({
+          text: castText,
+          embeds: [castPageUrl]
+        });
       } else {
-        window.location.href = composeUrl;
+        // Fallback for web browsers
+        window.location.href = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
       }
     } catch (error) {
       console.error('Error opening composer:', error);
-      window.location.href = composeUrl;
+      // Final fallback
+      window.location.href = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
     }
   };
 
