@@ -4,22 +4,20 @@
     "payload": "eyJkb21haW4iOiJjYXN0LW15LXZpYmUudmVyY2VsLmFwcCJ9",
     "signature": "dbuPt8+1ZrZPlm+pesPDyW2N+iMt09M/JWR5/Juyg1R4DlStD0kLrNA6+zoi9z2vsoAOKgE8Q22Q9AjZCQ52nBs="
   },
-  "baseBuilder": {
-    "ownerAddress": "0x939E33ed6661B9C1e381c4666F67AB816aA09afE"
-  },
-  "miniapp": {
+  "frame": {
     "version": "1",
     "name": "CastMyVibe",
     "iconUrl": "https://cast-my-vibe.vercel.app/icon.png",
+    "homeUrl": "https://cast-my-vibe.vercel.app",
+    "imageUrl": "https://cast-my-vibe.vercel.app/hero.png",
+    "buttonTitle": "Get Your Vibe",
     "splashImageUrl": "https://cast-my-vibe.vercel.app/splash.png",
     "splashBackgroundColor": "#7209b7",
-    "homeUrl": "https://cast-my-vibe.vercel.app",
     "webhookUrl": "https://cast-my-vibe.vercel.app/api/webhook",
-    "imageUrl": "https://cast-my-vibe.vercel.app/hero.png",
-    "heroImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "subtitle": "Daily crypto vibes",
     "description": "Daily crypto vibes with humor and optimism for the Farcaster community",
     "primaryCategory": "entertainment",
+    "ogImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "tags": [
       "crypto",
       "humor",
@@ -27,15 +25,17 @@
       "daily",
       "fun"
     ],
+    "heroImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
     "tagline": "Daily dose of crypto vibes",
     "ogTitle": "CastMyVibe",
     "ogDescription": "Get your daily crypto vibe. Roll, share, and spread good vibes in the Farcaster community.",
-    "ogImageUrl": "https://cast-my-vibe.vercel.app/hero.png",
-    "castShareUrl": "https://cast-my-vibe.vercel.app",
-    "screenshotUrls": [
-      "https://cast-my-vibe.vercel.app/screenshot-1.png",
-      "https://cast-my-vibe.vercel.app/screenshot-2.png"
-    ],
-    "noindex": false
+    "requiredChains": ["eip155:8453"],
+    "requiredCapabilities": [
+      "wallet.getEthereumProvider",
+      "actions.composeCast"
+    ]
+  },
+  "baseBuilder": {
+    "allowedAddresses": ["0x939E33ed6661B9C1e381c4666F67AB816aA09afE"]
   }
 }
