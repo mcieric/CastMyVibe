@@ -115,12 +115,18 @@ export default function MiniApp() {
 
 🎲 Get yours at cast-my-vibe.vercel.app`;
     
-    // Use SDK's openUrl action - works natively in Base App and Warpcast
+    // Use SDK's native composeCast action - works in Base App AND Warpcast!
     try {
-      if (sdk?.actions?.openUrl) {
-        // Open Warpcast compose URL - SDK will handle it natively in Base App
-        const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
-        await sdk.actions.openUrl(composeUrl);
+      if (sdk?.actions?.composeCast) {
+        const result = await sdk.actions.composeCast({
+          text: castText,
+          embeds: [castPageUrl]
+        });
+        
+        // Log successful cast
+        if (result?.cast) {
+          console.log('Cast posted:', result.cast.hash);
+        }
       } else {
         // Fallback for web browsers
         const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
