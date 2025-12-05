@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { sdk } from '@farcaster/miniapp-sdk';
-import { useComposeCast } from '@coinbase/onchainkit/minikit';
 import { getUserVibeForToday, getRandomVibe } from '@/lib/utils';
 import { Vibe } from '@/lib/vibes';
 import styles from './page.module.css';
@@ -16,9 +15,6 @@ export default function MiniApp() {
   const [isRolling, setIsRolling] = useState(false);
   const [showDonate, setShowDonate] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-  
-  // Use OnchainKit's useComposeCast for native Base App composer
-  const { composeCast } = useComposeCast();
 
   useEffect(() => {
     const load = async () => {
@@ -119,15 +115,20 @@ export default function MiniApp() {
 
 🎲 Get yours at cast-my-vibe.vercel.app`;
     
-    // Use OnchainKit's composeCast for native Base App support
+    // Use SDK's openUrl action - works natively in Base App and Warpcast
     try {
-      composeCast({
-        text: castText,
-        embeds: [castPageUrl]
-      });
+      if (sdk?.actions?.openUrl) {
+        // Open Warpcast compose URL - SDK will handle it natively in Base App
+        const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+        await sdk.actions.openUrl(composeUrl);
+      } else {
+        // Fallback for web browsers
+        const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
+        window.location.href = composeUrl;
+      }
     } catch (error) {
-      console.error('Error opening cast composer:', error);
-      // Fallback for web or other clients
+      console.error('Error opening composer:', error);
+      // Last resort fallback
       const fallbackUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
       window.location.href = fallbackUrl;
     }
