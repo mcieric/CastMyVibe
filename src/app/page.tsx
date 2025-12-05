@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { sdk } from '@farcaster/miniapp-sdk';
+import { useMiniKit, useComposeCast } from '@coinbase/onchainkit/minikit';
 import { getUserVibeForToday, getRandomVibe } from '@/lib/utils';
 import { Vibe } from '@/lib/vibes';
 import styles from './page.module.css';
@@ -15,6 +16,10 @@ export default function MiniApp() {
   const [isRolling, setIsRolling] = useState(false);
   const [showDonate, setShowDonate] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  
+  // Use OnchainKit hooks for Base App compatibility
+  const { setFrameReady, isFrameReady } = useMiniKit();
+  const { composeCast } = useComposeCast();
 
   useEffect(() => {
     const load = async () => {
@@ -44,17 +49,25 @@ export default function MiniApp() {
         
         setIsSDKLoaded(true);
         
-        // Tell Farcaster the app is ready
+        // Signal frame is ready (OnchainKit)
+        if (!isFrameReady) {
+          setFrameReady();
+        }
+        
+        // Also tell Farcaster SDK (for compatibility)
         await sdk.actions.ready();
       } catch (error) {
         console.error('Error loading SDK:', error);
         setIsSDKLoaded(true);
+        if (!isFrameReady) {
+          setFrameReady();
+        }
         await sdk.actions.ready();
       }
     };
     
     load();
-  }, []);
+  }, [isFrameReady, setFrameReady]);
 
   const handleReroll = () => {
     if (rollCount >= maxRolls || !currentVibe) return;
@@ -115,26 +128,15 @@ export default function MiniApp() {
 
 🎲 Get yours at cast-my-vibe.vercel.app`;
     
-    // Use SDK's native composeCast action - works in Base App AND Warpcast!
+    // Use OnchainKit's composeCast hook - official Base App method!
     try {
-      if (sdk?.actions?.composeCast) {
-        const result = await sdk.actions.composeCast({
-          text: castText,
-          embeds: [castPageUrl]
-        });
-        
-        // Log successful cast
-        if (result?.cast) {
-          console.log('Cast posted:', result.cast.hash);
-        }
-      } else {
-        // Fallback for web browsers
-        const composeUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
-        window.location.href = composeUrl;
-      }
+      composeCast({
+        text: castText,
+        embeds: [castPageUrl]
+      });
     } catch (error) {
       console.error('Error opening composer:', error);
-      // Last resort fallback
+      // Fallback for web browsers
       const fallbackUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(castText)}&embeds[]=${encodeURIComponent(castPageUrl)}`;
       window.location.href = fallbackUrl;
     }
